@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram News Bot - fxtin.com important news
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/news-channel
+ExecStart=/usr/bin/python3 /root/news-channel/news_bot.py
+Restart=always
+RestartSec=10
+Environment=TELEGRAM_BOT_TOKEN=YOUR_BOT_TOKEN_HERE
+Environment=TELEGRAM_CHAT_ID=YOUR_CHAT_ID_HERE
+Environment=POLL_INTERVAL=30
+
+[Install]
+WantedBy=multi-user.target
